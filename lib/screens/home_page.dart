@@ -206,7 +206,9 @@ class HomePage extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 20,),
-
+              Switch(value: true, onChanged: (value) {
+                
+              },),
               SizedBox(height: 500),
             ],
           ),
