@@ -64,32 +64,150 @@ class HomePage extends StatelessWidget {
               ),
               SizedBox(height: 20),
               Text('Container'),
+              SizedBox(height: 40),
               Container(
                 width: 300,
-                height: 60,
+                height: 300,
 
                 decoration: BoxDecoration(
-                  color: Colors.blue,
-                  borderRadius: BorderRadius.circular(30),
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(50),
+                    bottomRight: Radius.circular(50),
+                  ),
                   image: DecorationImage(
-                    image: NetworkImage(
-                      'https://www.wallpapergap.com/cdn/24/505/wallpaper-abstract-minimal-3840x2160.jpg',
-                    ),
+                    image: AssetImage('assets/images/flower.png'),
                     fit: BoxFit.cover,
                   ),
-                ),
-                child: Center(
-                  child: Text(
-                    'Create Account',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
-                    ),
+                  border: Border.all(width: 5, color: Colors.red),
+
+                  gradient: LinearGradient(
+                    colors: [Colors.blue.shade200, Colors.blue.shade900],
+                    begin: Alignment.bottomLeft,
+                    end: Alignment.topRight,
                   ),
                 ),
               ),
               SizedBox(height: 50),
+              Text('Text Button'),
+              TextButton(
+                onPressed: () {
+                  //Anonymous function
+                  print('Pressed');
+                },
+                child: Text('Save to my board'),
+              ),
+              Text('Icon Button'),
+              IconButton(
+                onPressed: () {
+                  print('Icon Button Pressed');
+                },
+                onLongPress: () {
+                  print('Long Press');
+                },
+                icon: Icon(Icons.add_a_photo_rounded),
+              ),
+              Text('Filled Button'),
+              FilledButton(
+                onPressed: () {
+                  print('filled button');
+                },
+                style: ButtonStyle(
+                  backgroundColor: WidgetStatePropertyAll(Colors.green),
+                ),
+
+                child: Text('Save'),
+              ),
+              Text('Elevated Button'),
+              ElevatedButton(onPressed: () {}, child: Text('Save Files')),
+              SizedBox(height: 30),
+
+              Text('Custom Button'),
+
+              SizedBox(height: 10),
+              InkWell(
+                onDoubleTap: () {
+                  print('double tapped');
+                },
+                onTap: () {
+                  print('tapped');
+                },
+                onTapCancel: () {
+                  print('cancelled');
+                },
+                child: Container(
+                  width: 300,
+                  height: 60,
+                  decoration: BoxDecoration(
+                    color: Colors.amber.shade700,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Center(
+                    child: Text(
+                      'Create Account',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(height: 30),
+              GestureDetector(
+                onTap: () {
+                  print('Tapped');
+                },
+                child: Container(
+                  width: 300,
+                  height: 60,
+                  decoration: BoxDecoration(
+                    color: Colors.green.shade700,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Center(
+                    child: Text(
+                      'Signin',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(height: 20),
+              Text('Chip & Padding'),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: EdgeInsetsGeometry.symmetric(horizontal: 8),
+                    child: Chip(
+                      label: Text('Adventure'),
+                      deleteIcon: Icon(Icons.delete),
+                      onDeleted: () {},
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Chip(label: Text('Drama'), avatar: CircleAvatar()),
+                  ),
+                ],
+              ),
+              SizedBox(height: 20),
+              Text('Circle Avatar'),
+              CircleAvatar(
+                radius: 50,
+                backgroundColor: Colors.grey,
+                backgroundImage: NetworkImage(
+                  'https://cdn-icons-png.flaticon.com/512/147/147140.png',
+                ),
+              ),
+              SizedBox(height: 20,),
+
+              SizedBox(height: 500),
             ],
           ),
         ),
